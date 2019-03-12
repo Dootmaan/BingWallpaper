@@ -21,11 +21,11 @@ def spiderPic(html):
 
         localtime = time.localtime(time.time())
         filename=re.findall(r'([a-zA-Z0-9_-]*)_1920x1080.jpg',addr)
-        fq = open('D:\\Photos\\壁纸\\' + (str(filename[0])+"_"+str(localtime.tm_year)+'_'+str(localtime.tm_mon)+'_'+str(localtime.tm_mday)+'.jpg'),'wb')     #下载图片，并保存和命名
+        fq = open('D:\\Photos\\' + (str(filename[0])+"_"+str(localtime.tm_year)+'_'+str(localtime.tm_mon)+'_'+str(localtime.tm_mday)+'.jpg'),'wb')     #下载图片，并保存和命名
         fq.write(pics.content)
         fq.close()
 
-        im = Image.open('D:\\Photos\\壁纸\\' + (str(filename[0])+"_"+str(localtime.tm_year)+'_'+str(localtime.tm_mon)+'_'+str(localtime.tm_mday)+'.jpg'))
+        im = Image.open('D:\\Photos\\' + (str(filename[0])+"_"+str(localtime.tm_year)+'_'+str(localtime.tm_mon)+'_'+str(localtime.tm_mday)+'.jpg'))
         im.show()
  
 

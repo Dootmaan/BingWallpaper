@@ -1,10 +1,10 @@
-import re #导入正则表达式模块
-import requests #python HTTP客户端 编写爬虫和测试服务器经常用到的模块
+import re 
+import requests 
 import time
 from PIL import Image
 from lxml import etree
  
-#定义函数方法
+
 def spiderPic(html):
     print('正在查找壁纸，请稍后......')
     html = etree.HTML(html)
@@ -28,11 +28,10 @@ def spiderPic(html):
         im = Image.open('D:\\Photos\\壁纸\\' + (str(filename[0])+"_"+str(localtime.tm_year)+'_'+str(localtime.tm_mon)+'_'+str(localtime.tm_mday)+'.jpg'))
         im.show()
  
-#python的主方法
+
 if __name__ == '__main__':
     print("现在时间："+time.asctime(time.localtime(time.time())) + ",为您下载今日Bing壁纸")
     result = requests.get('https://cn.bing.com/')
-    # result = requests.get('https://cn.bing.com/?FORM=BEHPTB&ensearch=1')
+    # result = requests.get('https://cn.bing.com/?FORM=BEHPTB&ensearch=1')   #英文版网站的壁纸
  
-    #调用函数
     spiderPic(result.text)
